@@ -76,7 +76,11 @@ pipeline {
     post{
         success {
             echo 'Pipeline completed successfully!' 
-        }
+            emailext (
+             body: '"Build succesfull Check logs: ${env.BUILD_URL}"', 
+             subject: 'Build succesfull: ${env.JOB_NAME}',
+            to: 'sourabhpatil00007@gmail.com'
+       ) }
         failure {
             echo 'Pipeline failed. Please check the logs for details.'
         }
