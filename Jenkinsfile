@@ -7,7 +7,7 @@ pipeline {
         AMI_ID = 'ami-0754c17a9e90ed320'
         SUBNET_ID = 'subnet-0e06fbeb9bc9c562f'
         SECURITY_GROUP_ID = 'sg-0320c65626ad85de1'
-        KEY_NAME = 'new-key.pem'
+        KEY_NAME = 'new-key'
     }
 
     stages {
