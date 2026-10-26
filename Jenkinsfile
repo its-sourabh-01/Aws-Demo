@@ -56,8 +56,9 @@ pipeline {
         failure {
             echo 'Pipeline failed. Please check the logs for details.'
         }
-        exception {
-            echo 'An exception occurred during the pipeline execution.'
+        always {
+            cleanWs()
+            
         }
     } 
 }
