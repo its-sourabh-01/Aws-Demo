@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'ap-south-1'
-        S3_BUCKET = 'qa-demo26'
+        
     }
 
     stages {
@@ -48,4 +48,16 @@ pipeline {
             }
         }
     }
+
+    post{
+        success {
+            echo 'Pipeline completed successfully!' 
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs for details.'
+        }
+        exception {
+            echo 'An exception occurred during the pipeline execution.'
+        }
+    } 
 }
