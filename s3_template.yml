@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: Create S3 bucket for website hosting
+
+Resources:
+
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+
+    Properties:
+      BucketName: !Sub 'my-website-${AWS::AccountId}-${AWS::Region}'
+
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+Outputs:
+
+  BucketName:
+    Value: !Ref WebsiteBucket
